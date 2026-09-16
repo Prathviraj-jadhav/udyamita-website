@@ -1,0 +1,465 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Font variables - loaded via CSS @import (runtime, not build-time) */
+:root {
+  --font-lora: "Lora", Georgia, serif;
+  --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+  --font-serif: var(--font-lora);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-royal: var(--royal);
+  --color-slate: var(--slate);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ============================================================
+   UDYAMITA  -  BLUE MONOCHROME DESIGN SYSTEM
+   One hue (blue ~255°) across shades + neutral greys/black/white.
+   No gradients. Media assets kept in natural color.
+   ============================================================ */
+
+:root {
+  --radius: 0.5rem;
+  --hue: 255;
+
+  /* Core blue-monochrome ramp  -  blue reads clearly */
+  --background: oklch(0.995 0.004 var(--hue));       /* near-white with blue whisper */
+  --foreground: oklch(0.22 0.055 var(--hue));        /* deep navy ink */
+  --paper: oklch(0.97 0.018 var(--hue));             /* cool blue-white paper */
+  --ink: oklch(0.22 0.055 var(--hue));               /* ink */
+  --navy: oklch(0.30 0.08 var(--hue));               /* deep navy */
+  --royal: oklch(0.50 0.19 var(--hue));              /* royal blue accent */
+  --slate: oklch(0.52 0.045 var(--hue));             /* slate blue */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.055 var(--hue));
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.055 var(--hue));
+
+  --primary: oklch(0.26 0.07 var(--hue));            /* navy CTA */
+  --primary-foreground: oklch(0.99 0.005 var(--hue));
+
+  --secondary: oklch(0.96 0.022 var(--hue));
+  --secondary-foreground: oklch(0.26 0.07 var(--hue));
+  --muted: oklch(0.965 0.016 var(--hue));
+  --muted-foreground: oklch(0.48 0.045 var(--hue));
+  --accent: oklch(0.93 0.035 var(--hue));
+  --accent-foreground: oklch(0.26 0.07 var(--hue));
+
+  --destructive: oklch(0.52 0.18 25);
+  --border: oklch(0.90 0.018 var(--hue));
+  --input: oklch(0.90 0.018 var(--hue));
+  --ring: oklch(0.50 0.19 var(--hue));
+
+  /* Charts  -  blue monochrome ramp */
+  --chart-1: oklch(0.26 0.07 var(--hue));
+  --chart-2: oklch(0.42 0.12 var(--hue));
+  --chart-3: oklch(0.55 0.16 var(--hue));
+  --chart-4: oklch(0.70 0.12 var(--hue));
+  --chart-5: oklch(0.85 0.06 var(--hue));
+
+  --sidebar: oklch(0.985 0.01 var(--hue));
+  --sidebar-foreground: oklch(0.22 0.055 var(--hue));
+  --sidebar-primary: oklch(0.26 0.07 var(--hue));
+  --sidebar-primary-foreground: oklch(0.99 0.005 var(--hue));
+  --sidebar-accent: oklch(0.965 0.02 var(--hue));
+  --sidebar-accent-foreground: oklch(0.26 0.07 var(--hue));
+  --sidebar-border: oklch(0.90 0.018 var(--hue));
+  --sidebar-ring: oklch(0.50 0.19 var(--hue));
+}
+
+.dark {
+  --background: oklch(0.15 0.025 var(--hue));
+  --foreground: oklch(0.97 0.008 var(--hue));
+  --paper: oklch(0.19 0.03 var(--hue));
+  --ink: oklch(0.97 0.008 var(--hue));
+  --navy: oklch(0.30 0.06 var(--hue));
+  --royal: oklch(0.65 0.18 var(--hue));
+  --slate: oklch(0.70 0.03 var(--hue));
+
+  --card: oklch(0.19 0.03 var(--hue));
+  --card-foreground: oklch(0.97 0.008 var(--hue));
+  --popover: oklch(0.19 0.03 var(--hue));
+  --popover-foreground: oklch(0.97 0.008 var(--hue));
+
+  --primary: oklch(0.97 0.008 var(--hue));
+  --primary-foreground: oklch(0.15 0.025 var(--hue));
+
+  --secondary: oklch(0.24 0.035 var(--hue));
+  --secondary-foreground: oklch(0.97 0.008 var(--hue));
+  --muted: oklch(0.24 0.035 var(--hue));
+  --muted-foreground: oklch(0.68 0.025 var(--hue));
+  --accent: oklch(0.24 0.035 var(--hue));
+  --accent-foreground: oklch(0.97 0.008 var(--hue));
+
+  --destructive: oklch(0.68 0.18 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.65 0.18 var(--hue));
+
+  --chart-1: oklch(0.97 0.008 var(--hue));
+  --chart-2: oklch(0.80 0.06 var(--hue));
+  --chart-3: oklch(0.62 0.12 var(--hue));
+  --chart-4: oklch(0.45 0.14 var(--hue));
+  --chart-5: oklch(0.30 0.08 var(--hue));
+
+  --sidebar: oklch(0.19 0.03 var(--hue));
+  --sidebar-foreground: oklch(0.97 0.008 var(--hue));
+  --sidebar-primary: oklch(0.97 0.008 var(--hue));
+  --sidebar-primary-foreground: oklch(0.15 0.025 var(--hue));
+  --sidebar-accent: oklch(0.24 0.035 var(--hue));
+  --sidebar-accent-foreground: oklch(0.97 0.008 var(--hue));
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.65 0.18 var(--hue));
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv01";
+  }
+  ::selection {
+    background: var(--royal);
+    color: oklch(0.99 0 0);
+  }
+  .dark ::selection {
+    background: var(--royal);
+    color: oklch(0.13 0 0);
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES  -  controlled, fluid heading sizes
+   ============================================================ */
+
+.font-serif {
+  font-family: var(--font-lora), Georgia, serif;
+}
+
+.eyebrow {
+  font-family: var(--font-poppins), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+  font-size: 0.6875rem;
+  line-height: 1;
+}
+
+.eyebrow-sm {
+  font-family: var(--font-poppins), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  font-size: 0.625rem;
+  line-height: 1;
+}
+
+/* Fluid display headings  -  fixed, controlled sizes */
+.display {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3rem);
+}
+
+.display-lg {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-size: clamp(2.25rem, 1.5rem + 3.2vw, 4rem);
+}
+
+.display-xl {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+}
+
+.h-section {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.625rem, 1.2rem + 1.8vw, 2.5rem);
+}
+
+.h-card {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.hairline {
+  border-color: var(--border);
+}
+
+/* ============================================================
+   LAYOUT  -  container + section rhythm
+   ============================================================ */
+
+.udyam-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;   /* mobile 20px */
+}
+@media (min-width: 768px) {
+  .udyam-container { padding-inline: 3rem; }   /* tablet 48px */
+}
+@media (min-width: 1024px) {
+  .udyam-container { padding-inline: 5rem; }   /* 80px */
+}
+@media (min-width: 1280px) {
+  .udyam-container { padding-inline: 7.5rem; } /* desktop 120px */
+}
+
+.section-pad {
+  padding-block: 4.5rem;
+}
+@media (min-width: 768px) {
+  .section-pad { padding-block: 6.5rem; }
+}
+@media (min-width: 1024px) {
+  .section-pad { padding-block: 8rem; }
+}
+
+/* ============================================================
+   LIQUID GLASS (used sparingly for navbar / overlays)
+   ============================================================ */
+
+.liquid-glass {
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+}
+.dark .liquid-glass {
+  background: color-mix(in oklab, var(--background) 55%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+
+.liquid-glass-strong {
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(22px);
+  -webkit-backdrop-filter: saturate(180%) blur(22px);
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+
+@keyframes udyam-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: inline-flex;
+  width: max-content;
+  animation: udyam-marquee var(--marquee-duration, 22s) linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+
+.udyam-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-foreground) transparent;
+}
+.udyam-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.udyam-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.udyam-scroll::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 999px;
+  opacity: 0.4;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Video masks
+   ============================================================ */
+
+.mask-soft {
+  -webkit-mask-image: radial-gradient(circle at center, #000 60%, transparent 100%);
+  mask-image: radial-gradient(circle at center, #000 60%, transparent 100%);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* ============================================================
+   Prose  -  for blog article bodies
+   ============================================================ */
+
+.udyam-prose {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+.udyam-prose p { margin-block: 1.25em; }
+.udyam-prose h2 {
+  font-family: var(--font-lora), serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-top: 2.5em;
+  margin-bottom: 0.6em;
+}
+.udyam-prose h3 {
+  font-family: var(--font-lora), serif;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.udyam-prose ul, .udyam-prose ol {
+  margin-block: 1.25em;
+  padding-left: 1.4em;
+}
+.udyam-prose li { margin-block: 0.5em; }
+.udyam-prose ul li { list-style: disc; }
+.udyam-prose ol li { list-style: decimal; }
+.udyam-prose strong { font-weight: 600; }
+.udyam-prose a {
+  color: var(--royal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.udyam-prose a:hover { color: var(--navy); }
+.udyam-prose blockquote {
+  border-left: 2px solid var(--royal);
+  padding-left: 1.25rem;
+  margin-block: 1.75em;
+  font-family: var(--font-lora), serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--foreground);
+}
+.udyam-prose code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  background: var(--muted);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+.udyam-prose pre {
+  background: var(--navy);
+  color: oklch(0.97 0 0);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin-block: 1.5em;
+}
+.udyam-prose pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}

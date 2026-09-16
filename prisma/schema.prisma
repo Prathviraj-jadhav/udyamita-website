@@ -1,0 +1,66 @@
+// Udyamita Global LLP — Prisma schema
+// SQLite. Primitive types only (no lists).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model HealthCheckLead {
+  id               String   @id @default(cuid())
+  name             String
+  business         String
+  phone            String
+  email            String
+  city             String
+  industry         String
+  healthScore      Int
+  dominantProblem  String
+  recommendedRung  String
+  source           String   @default("website_health_check")
+  createdAt        DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  business  String?
+  phone     String?
+  message   String
+  intent    String   @default("general")
+  createdAt DateTime @default(now())
+}
+
+model PartnerApplication {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String
+  business   String
+  partnerType String
+  city       String
+  clientBase String?
+  services   String?
+  industry   String?
+  whyUdyamita String?
+  createdAt  DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model ArticleFeedback {
+  id        String   @id @default(cuid())
+  slug      String
+  helpful   Boolean
+  comment   String?
+  createdAt DateTime @default(now())
+}

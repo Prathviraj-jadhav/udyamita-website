@@ -1,0 +1,71 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build & Verify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Generate Prisma Client
+        env:
+          DATABASE_URL: "file:./custom.db"
+        run: bun run db:generate
+
+      - name: Run ESLint
+        run: bun run lint
+
+      - name: Build Next.js Application
+        env:
+          DATABASE_URL: "file:./custom.db"
+          NEXT_TELEMETRY_DISABLED: 1
+        run: bun run build
+
+  deploy:
+    name: Deploy to Production
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel (if secrets configured)
+        if: env.VERCEL_TOKEN != ''
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deployment Notice
+        if: env.VERCEL_TOKEN == ''
+        run: |
+          echo "CI build and verification succeeded!"
+          echo "To enable automatic deployment via GitHub Actions, configure VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID repository secrets,"
+          echo "or connect this repository directly in the Vercel / Render / Railway dashboard."
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

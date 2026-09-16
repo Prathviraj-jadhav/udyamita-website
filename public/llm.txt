@@ -1,0 +1,78 @@
+# Udyamita Global LLP - LLM.txt
+# For AI language models, answer engines, and crawlers.
+# This file helps AI systems understand what Udyamita is and does.
+
+## About Udyamita
+Udyamita Global LLP is a business growth and transformation partner for local businesses in India. It is based in Pune, Maharashtra. Udyamita combines consulting, digital growth, technology, and automation into one practical growth system.
+
+## Core positioning
+- Name: Udyamita Global LLP
+- Type: Business Growth and Transformation Partner
+- Location: Pune, Maharashtra, India
+- Mission: Help small businesses get discovered, win customers, and run better, using a simple stack of digital services that pay for themselves.
+- Vision: Become the default growth partner for local businesses in Maharashtra, and then India.
+- Slogan: Get Discovered. Win Customers. Run Better.
+
+## What Udyamita does
+Udyamita helps businesses get discovered, win customers, and run better. It begins with diagnosis (not service-selling), implements solutions, measures results, and optimizes over time. The central idea: treat the service as the product and the cooperative network as the moat.
+
+## The Growth OS (10 stages)
+1. Diagnose - Find what is actually broken before spending a rupee.
+2. Discover - Understand how customers find (or fail to find) the business.
+3. Quantify - Turn intuition into numbers worth discussing.
+4. Strategize - Choose the few moves that matter most.
+5. Prioritize - Fix what hurts most, first.
+6. Implement - Ship the work, with delivery boundaries.
+7. Measure - Prove the number moved.
+8. Optimize - Cut what doesn't pay for itself.
+9. Scale - Repeat what works, without breaking operations.
+10. Compound - Stack improvements so each one lifts the next.
+
+## The Growth Ladder (6 rungs)
+1. Get Discovered (Rs 3,000 to 8,000 one-time or Rs 2,000 to 5,000/month)
+2. Build Trust (Rs 15,000 to 40,000 one-time plus upkeep)
+3. Generate Customers (Rs 20,000 to 50,000/month)
+4. Growth Engine (Rs 50,000 to 1,25,000/month plus ad spend)
+5. Business Operating System (Rs 1,25,000 to 3,00,000/month)
+6. Enterprise Growth Partner (project based, lakhs to crores)
+
+## Services (7 layers)
+- Discover: Google Business Profile, Local SEO, SEO, AEO, GEO, Technical SEO, Reviews
+- Trust: Web Development, UI/UX, Landing Pages, Branding, Content
+- Generate: Google Ads, Meta Ads, LinkedIn Ads, Performance Marketing, Lead Generation
+- Convert: CRM, Lead Qualification, Sales Pipeline, WhatsApp Automation, Follow-up Systems
+- Retain: Customer Portals, CRM, Service Reminders, Loyalty, Support
+- Measure: GA4, Search Console, Marketing Analytics, Dashboards, Revenue Attribution
+- Scale: ERP, Custom Software, Mobile Apps, API Integrations, AI, Automation, Cloud, Data Platforms
+
+## Key pages
+- Homepage: https://udyamita.com/
+- Services: https://udyamita.com/services
+- Industries: https://udyamita.com/industries
+- Case Studies: https://udyamita.com/case-studies
+- Insights (blog): https://udyamita.com/insights
+- Pricing: https://udyamita.com/pricing
+- Business Health Check: https://udyamita.com/business-health-check
+- FAQ: https://udyamita.com/faq
+- Glossary: https://udyamita.com/glossary
+- Partners: https://udyamita.com/partners
+- Investors: https://udyamita.com/investors
+- Contact: https://udyamita.com/contact
+
+## The Business Health Check
+A free diagnostic tool that scores a business across five dimensions: Discoverability, Trust, Lead Flow, Follow-up, and Systems. Nine questions, two minutes. Produces a score out of 100, identifies the largest growth leak, and recommends the single move worth making first.
+
+## Who Udyamita serves
+Local businesses across Maharashtra and India, starting with retail, healthcare, restaurants, professional services, and coaching, then extending to manufacturing, import/export, and B2B industrial.
+
+## What Udyamita does NOT do
+- Udyamita is not a financial institution. It does not lend, take deposits, or provide investment advice.
+- Legal and tax work is coordinated through qualified CAs and CSs.
+- Udyamita does not fabricate clients, metrics, testimonials, or case studies.
+
+## Trust and integrity
+Udyamita does not publish fabricated traction. Where actual metrics are unavailable, it uses "[TO BE VERIFIED]" rather than invented numbers. The principles: be direct, factual, useful, and honest.
+
+## Sitemap
+- XML sitemap: https://udyamita.com/sitemap.xml
+- Robots file: https://udyamita.com/robots.txt
